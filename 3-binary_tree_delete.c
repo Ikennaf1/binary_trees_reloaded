@@ -17,10 +17,10 @@ void binary_tree_delete(binary_tree_t *tree)
         tree = tree->left;
         binary_tree_delete(tree);
         free(tree);
-        if (tree->parent != NULL) {
-            free(tree->parent);
-            tree->parent = NULL;
-        }
+        // if (tree->parent != NULL) {
+        //     free(tree->parent);
+        //     tree->parent = NULL;
+        // }
         tree = NULL;
         return;
     }
@@ -29,12 +29,16 @@ void binary_tree_delete(binary_tree_t *tree)
         tree = tree->right;
         binary_tree_delete(tree);
         free(tree);
-        if (tree->parent != NULL) {
-            free(tree->parent);
-            tree->parent = NULL;
-        }
+        // if (tree->parent != NULL) {
+        //     free(tree->parent);
+        //     tree->parent = NULL;
+        // }
         tree = NULL;
         return;
+    }
+    if (tree->parent != NULL) {
+        free(tree->parent);
+        tree->parent = NULL;
     }
 
     free(tree);
