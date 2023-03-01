@@ -21,15 +21,16 @@ void binary_tree_delete(binary_tree_t *tree)
         return;
     }
 
-    if (tree->right != NULL) {
+    else if (tree->right != NULL) {
         tree = tree->right;
         binary_tree_delete(tree);
         free(tree);
         tree = NULL;
         return;
-    }
+    } else {
 
     free(tree->parent);
     tree->parent = NULL;
     return;
+    }
 }
