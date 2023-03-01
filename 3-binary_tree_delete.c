@@ -60,6 +60,9 @@ void binary_tree_delete(binary_tree_t *tree)
 
     if (tree->parent)
         free(tree->parent);
+
+    if (tree)
+    free(tree);
     
     return;
 }
